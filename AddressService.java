@@ -1,6 +1,7 @@
 package com.java.addressbook2;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 
@@ -29,6 +30,8 @@ public class AddressService implements IAddress {
 		Info.setZip(s.next());
 		System.out.println("Enter your phone number");
 		Info.setPhone(s.next());
+		
+		
 		for(int i =0;i<book.size();i++) {
 			if(book.get(i).getFname().equals(Info.getFname())) {
 				if(book.get(i).getLname().equals(Info.getLname())) {
@@ -36,11 +39,17 @@ public class AddressService implements IAddress {
 					break;
 				}
 			}
-			else
+			else {
 				book.add(Info);
+				break;
+			}
+				
+			
 		}
 		if(book.size()==0)
 			book.add(Info);
+		
+		System.out.println(book);
 		
 	}
 
@@ -106,6 +115,15 @@ public class AddressService implements IAddress {
 			}
 		}
 	}
+
+
+	@Override
+	public void SortName() {
+
+		Collections.sort(book, AddressGetterSetter.NameComparator);
+		System.out.println(book);
+	}
+	
 	
 
 	
