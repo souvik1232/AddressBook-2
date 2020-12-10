@@ -9,4 +9,7 @@ public interface IAddress {
 	public void SortCity();
 	public void SortState();
 	public void SortZip();
+	public void Display();
+	public void DisplayCity();
+	public void DisplayState();
 }

@@ -2,13 +2,20 @@ package com.java.addressbook2;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Scanner;
+
+import java.util.Set;
 
 
 
 public class AddressService implements IAddress {
 	
 	ArrayList<AddressGetterSetter> book =new ArrayList<>();
+	HashMap<String, String> citydict = new HashMap<String, String>();
+	HashMap<String, String> statedict = new HashMap<String, String>();
 	Scanner s = new Scanner(System.in);
 	
 	
@@ -30,7 +37,8 @@ public class AddressService implements IAddress {
 		Info.setZip(s.nextInt());
 		System.out.println("Enter your phone number");
 		Info.setPhone(s.next());
-		
+		citydict.put(Info.getCity(), Info.getFname());
+		statedict.put(Info.getState(), Info.getFname());
 		
 		for(int i =0;i<book.size();i++) {
 			if(book.get(i).getFname().equals(Info.getFname())) {
@@ -42,15 +50,10 @@ public class AddressService implements IAddress {
 			else {
 				book.add(Info);
 				break;
-			}
-				
-			
+			}	
 		}
 		if(book.size()==0)
-			book.add(Info);
-		
-		System.out.println(book);
-		
+			book.add(Info);	
 	}
 
 
@@ -121,28 +124,60 @@ public class AddressService implements IAddress {
 	public void SortName() {
 
 		Collections.sort(book, AddressGetterSetter.NameComparator);
-		System.out.println(book);
 	}
 
 
 	@Override
 	public void SortCity() {
 		Collections.sort(book, AddressGetterSetter.CityComparator);
-		System.out.println(book);
 	}
 
 
 	@Override
 	public void SortState() {
 		Collections.sort(book, AddressGetterSetter.StateComparator);
-		System.out.println(book);
 	}
 
 
 	@Override
 	public void SortZip() {
 		Collections.sort(book, AddressGetterSetter.ZipComparator);
-		System.out.println(book);
+	}
+
+
+	@Override
+	public void Display() {
+
+		for(int i=0;i<book.size();i++)
+		{
+			System.out.println(book.get(i));
+		}
+	}
+
+
+	@Override
+	public void DisplayCity() {
+
+		Set set = citydict.entrySet();
+	      Iterator iterator = set.iterator();
+	      while(iterator.hasNext()) {
+	         Map.Entry mentry = (Map.Entry)iterator.next();
+	         System.out.print("City is: "+ mentry.getKey() + " & Name is: ");
+	         System.out.println(mentry.getValue());
+	      }
+	}
+
+
+	@Override
+	public void DisplayState() {
+
+		Set set = statedict.entrySet();
+	      Iterator iterator = set.iterator();
+	      while(iterator.hasNext()) {
+	         Map.Entry mentry = (Map.Entry)iterator.next();
+	         System.out.print("State is: "+ mentry.getKey() + " & Name is: ");
+	         System.out.println(mentry.getValue());
+	      }
 	}
 	
 	
