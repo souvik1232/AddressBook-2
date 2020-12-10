@@ -12,4 +12,5 @@ public interface IAddress {
 	public void Display();
 	public void DisplayCity();
 	public void DisplayState();
+	public void Search();
 }

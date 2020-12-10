@@ -179,8 +179,52 @@ public class AddressService implements IAddress {
 	         System.out.println(mentry.getValue());
 	      }
 	}
-	
-	
 
+
+	@Override
+	public void Search() {
+		System.out.println("Search Preferance:1.City  2.State");
+		int input = s.nextInt();
+		if(input == 1) {
+			String temp=null;
+			System.out.println("Enter the City whose record u want to display");
+			temp=s.next();
+			if(book.isEmpty())
+			{
+				System.out.println("No records to Show");
+				return;
+			}
+
+			for(int i=0;i<book.size();i++)
+			{
+				if(book.get(i).getCity().equals(temp))
+				{
+					System.out.println(book.get(i).getFname());
+				}
+			}
+		}
+		else {
+			String temp=null;
+			System.out.println("Enter the State whose record u want to display");
+			temp=s.next();
+			if(book.isEmpty())
+			{
+				System.out.println("No records to Show");
+				return;
+			}
+
+			for(int i=0;i<book.size();i++)
+			{
+				if(book.get(i).getState().equals(temp))
+				{
+					System.out.println(book.get(i).getFname());
+				}
+			}
+		}
+		
+	}
+	
+	
+		
 	
 }

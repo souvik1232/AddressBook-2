@@ -23,7 +23,8 @@ public class AddressBook {
 			System.out.println("7.Sort by Zip");
 			System.out.println("8.Display");
 			System.out.println("9.Display City wise");
-			System.out.println("9.Display State wise");
+			System.out.println("10.Display State wise");
+			System.out.println("11.Search City/State wise");
 			input = scanner.nextInt();
 			switch(input)
 			{
@@ -56,6 +57,9 @@ public class AddressBook {
 				break;
 			case 10:
 				object.DisplayState();
+				break;
+			case 11:
+				object.Search();
 				break;
 			default:System.out.println("Invalid option");
 			}
