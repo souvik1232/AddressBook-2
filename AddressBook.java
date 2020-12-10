@@ -33,7 +33,7 @@ public class AddressBook {
 			}
 			System.out.println("Do you want to continue?(0/1)");
 			ans=scanner.nextInt();
-		}while(ans==1);
+		}while(ans==1); 
 	}
 
 }
