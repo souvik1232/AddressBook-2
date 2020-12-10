@@ -6,5 +6,7 @@ public interface IAddress {
 	public void Edit();
 	public void Delete();
 	public void SortName();
-
+	public void SortCity();
+	public void SortState();
+	public void SortZip();
 }

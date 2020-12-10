@@ -27,7 +27,7 @@ public class AddressService implements IAddress {
 		System.out.println("Enter your state:");
 		Info.setState(s.next());
 		System.out.println("Enter your ZIP code:");
-		Info.setZip(s.next());
+		Info.setZip(s.nextInt());
 		System.out.println("Enter your phone number");
 		Info.setPhone(s.next());
 		
@@ -83,7 +83,7 @@ public class AddressService implements IAddress {
 					System.out.println("Enter your state:");
 					Info.setState(s.next());
 					System.out.println("Enter your ZIP code:");
-					Info.setZip(s.next());
+					Info.setZip(s.nextInt());
 					System.out.println("Enter your phone number");
 					Info.setPhone(s.next());
 					book.remove(i);
@@ -121,6 +121,27 @@ public class AddressService implements IAddress {
 	public void SortName() {
 
 		Collections.sort(book, AddressGetterSetter.NameComparator);
+		System.out.println(book);
+	}
+
+
+	@Override
+	public void SortCity() {
+		Collections.sort(book, AddressGetterSetter.CityComparator);
+		System.out.println(book);
+	}
+
+
+	@Override
+	public void SortState() {
+		Collections.sort(book, AddressGetterSetter.StateComparator);
+		System.out.println(book);
+	}
+
+
+	@Override
+	public void SortZip() {
+		Collections.sort(book, AddressGetterSetter.ZipComparator);
 		System.out.println(book);
 	}
 	

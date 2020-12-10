@@ -18,6 +18,9 @@ public class AddressBook {
 			System.out.println("2.Edit a contact");
 			System.out.println("3.Delete a contact");
 			System.out.println("4.Sort by First Name");
+			System.out.println("5.Sort by City"); 
+			System.out.println("6.Sort by State");
+			System.out.println("7.Sort by Zip");
 			input = scanner.nextInt();
 			switch(input)
 			{
@@ -32,6 +35,15 @@ public class AddressBook {
 				break;
 			case 4:
 				object.SortName();
+				break;
+			case 5:
+				object.SortCity();
+				break;
+			case 6:
+				object.SortState();
+				break;
+			case 7:
+				object.SortZip();
 				break;
 			default:System.out.println("Invalid option");
 			}
