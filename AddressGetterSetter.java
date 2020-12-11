@@ -4,24 +4,24 @@ import java.util.Comparator;
 
 public class AddressGetterSetter {
 	
-	String fname;
-	String lname;
+	String firstname;
+	String lastname;
 	String address;
 	String state;
 	String city;
 	int zip;
 	String phone;
-	public String getFname() {
-		return fname;
+	public String getFirstName() {
+		return firstname;
 	}
-	public void setFname(String fname) {
-		this.fname = fname;
+	public void setFirstName(String firstname) {
+		this.firstname = firstname;
 	}
-	public String getLname() {
-		return lname;
+	public String getLastName() {
+		return lastname;
 	}
-	public void setLname(String lname) {
-		this.lname = lname;
+	public void setLastName(String lastname) {
+		this.lastname = lastname;
 	}
 	public String getAddress() {
 		return address;
@@ -56,8 +56,8 @@ public class AddressGetterSetter {
 	public static Comparator<AddressGetterSetter> NameComparator = new Comparator<AddressGetterSetter>() {
 
 		public int compare(AddressGetterSetter a1, AddressGetterSetter a2) {
-		   String Name1 = a1.getFname().toUpperCase();
-		   String Name2 = a2.getFname().toUpperCase();
+		   String Name1 = a1.getFirstName().toUpperCase();
+		   String Name2 = a2.getFirstName().toUpperCase();
 
 		  
 		   return Name1.compareTo(Name2);
@@ -101,7 +101,7 @@ public class AddressGetterSetter {
 	
 	@Override
 	public String toString() {
-		return "AddressGetterSetter [fname=" + fname + ", lname=" + lname + ", address=" + address + ", state=" + state
+		return "AddressGetterSetter [firstname=" + firstname + ", lastname=" + lastname + ", address=" + address + ", state=" + state
 				+ ", city=" + city + ", zip=" + zip + ", phone=" + phone + "]";
 	}
 	

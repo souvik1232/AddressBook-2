@@ -14,9 +14,7 @@ import java.util.Set;
 public class AddressService implements IAddress {
 	
 	ArrayList<AddressGetterSetter> book =new ArrayList<>();
-	HashMap<String, String> citydict = new HashMap<String, String>();
-	HashMap<String, String> statedict = new HashMap<String, String>();
-	Scanner s = new Scanner(System.in);
+	Scanner scanner = new Scanner(System.in);
 	
 	
 	@Override
@@ -24,25 +22,24 @@ public class AddressService implements IAddress {
 
 		AddressGetterSetter Info = new AddressGetterSetter();
 		System.out.println("Enter First name:");
-		Info.setFname(s.next());
+		Info.setFirstName(scanner.next());
 		System.out.println("Enter last name:");
-		Info.setLname(s.next());
+		Info.setLastName(scanner.next());
 		System.out.println("Enter your address:");
-		Info.setAddress(s.next());
+		Info.setAddress(scanner.next());
 		System.out.println("Enter your city:");
-		Info.setCity(s.next());
+		Info.setCity(scanner.next());
 		System.out.println("Enter your state:");
-		Info.setState(s.next());
+		Info.setState(scanner.next());
 		System.out.println("Enter your ZIP code:");
-		Info.setZip(s.nextInt());
+		Info.setZip(scanner.nextInt());
 		System.out.println("Enter your phone number");
-		Info.setPhone(s.next());
-		citydict.put(Info.getCity(), Info.getFname());
-		statedict.put(Info.getState(), Info.getFname());
+		Info.setPhone(scanner.next());
+		
 		
 		for(int i =0;i<book.size();i++) {
-			if(book.get(i).getFname().equals(Info.getFname())) {
-				if(book.get(i).getLname().equals(Info.getLname())) {
+			if(book.get(i).getFirstName().equals(Info.getFirstName())) {
+				if(book.get(i).getLastName().equals(Info.getLastName())) {
 					System.out.println("Duplicate");
 					break;
 				}
@@ -62,7 +59,7 @@ public class AddressService implements IAddress {
 
 		String temp=null;
 		System.out.println("Enter the Phone number of the record u want to Edit");
-		temp=s.next();
+		temp=scanner.next();
 		if(book.isEmpty())
 		{
 			System.out.println("No records to edit");
@@ -76,19 +73,19 @@ public class AddressService implements IAddress {
 					AddressGetterSetter Info=new AddressGetterSetter();
 					System.out.println(temp);
 					System.out.println("Enter First name:");
-					Info.setFname(s.next());
+					Info.setFirstName(scanner.next());
 					System.out.println("Enter last name:");
-					Info.setLname(s.next());
+					Info.setLastName(scanner.next());
 					System.out.println("Enter your address:");
-					Info.setAddress(s.next());
+					Info.setAddress(scanner.next());
 					System.out.println("Enter your city:");
-					Info.setCity(s.next());
+					Info.setCity(scanner.next());
 					System.out.println("Enter your state:");
-					Info.setState(s.next());
+					Info.setState(scanner.next());
 					System.out.println("Enter your ZIP code:");
-					Info.setZip(s.nextInt());
+					Info.setZip(scanner.nextInt());
 					System.out.println("Enter your phone number");
-					Info.setPhone(s.next());
+					Info.setPhone(scanner.next());
 					book.remove(i);
 					book.add(i, Info);
 					break;
@@ -103,7 +100,7 @@ public class AddressService implements IAddress {
 
 		String temp=null;
 		System.out.println("Enter the First name of the record you want to delete");
-		temp=s.next();
+		temp=scanner.next();
 		if(book.isEmpty())
 		{
 			System.out.println("No records to delete");
@@ -111,7 +108,7 @@ public class AddressService implements IAddress {
 		}
 		for(int i=0;i<book.size();i++)
 		{
-			if(book.get(i).getFname().equals(temp))
+			if(book.get(i).getFirstName().equals(temp))
 			{
 				book.remove(i);
 				break;
@@ -157,38 +154,27 @@ public class AddressService implements IAddress {
 
 	@Override
 	public void DisplayCity() {
-
-		Set set = citydict.entrySet();
-	      Iterator iterator = set.iterator();
-	      while(iterator.hasNext()) {
-	         Map.Entry mentry = (Map.Entry)iterator.next();
-	         System.out.print("City is: "+ mentry.getKey() + " & Name is: ");
-	         System.out.println(mentry.getValue());
-	      }
+		for(int i=0;i<book.size();i++) {
+			System.out.println("City is "+book.get(i).getCity()+"& Name is: "+book.get(i).getFirstName());
+		}
 	}
 
 
 	@Override
 	public void DisplayState() {
-
-		Set set = statedict.entrySet();
-	      Iterator iterator = set.iterator();
-	      while(iterator.hasNext()) {
-	         Map.Entry mentry = (Map.Entry)iterator.next();
-	         System.out.print("State is: "+ mentry.getKey() + " & Name is: ");
-	         System.out.println(mentry.getValue());
-	      }
+		for(int i=0;i<book.size();i++) {
+			System.out.println("State is "+book.get(i).getState()+" & Name is: "+book.get(i).getFirstName());
+		}
 	}
-
-
+	
 	@Override
 	public void Search() {
 		System.out.println("Search Preferance:1.City  2.State");
-		int input = s.nextInt();
+		int input = scanner.nextInt();
 		if(input == 1) {
 			String temp=null;
 			System.out.println("Enter the City whose record u want to display");
-			temp=s.next();
+			temp=scanner.next();
 			if(book.isEmpty())
 			{
 				System.out.println("No records to Show");
@@ -199,14 +185,14 @@ public class AddressService implements IAddress {
 			{
 				if(book.get(i).getCity().equals(temp))
 				{
-					System.out.println(book.get(i).getFname());
+					System.out.println(book.get(i).getFirstName());
 				}
 			}
 		}
 		else {
 			String temp=null;
 			System.out.println("Enter the State whose record u want to display");
-			temp=s.next();
+			temp=scanner.next();
 			if(book.isEmpty())
 			{
 				System.out.println("No records to Show");
@@ -217,7 +203,7 @@ public class AddressService implements IAddress {
 			{
 				if(book.get(i).getState().equals(temp))
 				{
-					System.out.println(book.get(i).getFname());
+					System.out.println(book.get(i).getFirstName());
 				}
 			}
 		}
