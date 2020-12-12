@@ -18,7 +18,7 @@ public class AddressService implements IAddress {
 	
 	
 	@Override
-	public void Add() {
+	public void add() {
 
 		AddressGetterSetter Info = new AddressGetterSetter();
 		System.out.println("Enter First name:");
@@ -55,7 +55,7 @@ public class AddressService implements IAddress {
 
 
 	@Override
-	public void Edit() {
+	public void edit() {
 
 		String temp=null;
 		System.out.println("Enter the Phone number of the record u want to Edit");
@@ -96,7 +96,7 @@ public class AddressService implements IAddress {
 
 
 	@Override
-	public void Delete() {
+	public void delete() {
 
 		String temp=null;
 		System.out.println("Enter the First name of the record you want to delete");
@@ -118,32 +118,32 @@ public class AddressService implements IAddress {
 
 
 	@Override
-	public void SortName() {
+	public void sortName() {
 
 		Collections.sort(book, AddressGetterSetter.NameComparator);
 	}
 
 
 	@Override
-	public void SortCity() {
+	public void sortCity() {
 		Collections.sort(book, AddressGetterSetter.CityComparator);
 	}
 
 
 	@Override
-	public void SortState() {
+	public void sortState() {
 		Collections.sort(book, AddressGetterSetter.StateComparator);
 	}
 
 
 	@Override
-	public void SortZip() {
+	public void sortZip() {
 		Collections.sort(book, AddressGetterSetter.ZipComparator);
 	}
 
 
 	@Override
-	public void Display() {
+	public void display() {
 
 		for(int i=0;i<book.size();i++)
 		{
@@ -153,7 +153,7 @@ public class AddressService implements IAddress {
 
 
 	@Override
-	public void DisplayCity() {
+	public void displayCity() {
 		for(int i=0;i<book.size();i++) {
 			System.out.println("City is "+book.get(i).getCity()+"& Name is: "+book.get(i).getFirstName());
 		}
@@ -161,14 +161,14 @@ public class AddressService implements IAddress {
 
 
 	@Override
-	public void DisplayState() {
+	public void displayState() {
 		for(int i=0;i<book.size();i++) {
 			System.out.println("State is "+book.get(i).getState()+" & Name is: "+book.get(i).getFirstName());
 		}
 	}
 	
 	@Override
-	public void Search() {
+	public void search() {
 		System.out.println("Search Preferance:1.City  2.State");
 		int input = scanner.nextInt();
 		if(input == 1) {

@@ -4,24 +4,24 @@ import java.util.Comparator;
 
 public class AddressGetterSetter {
 	
-	String firstname;
-	String lastname;
+	String firstName;
+	String lastName;
 	String address;
 	String state;
 	String city;
 	int zip;
 	String phone;
 	public String getFirstName() {
-		return firstname;
+		return firstName;
 	}
 	public void setFirstName(String firstname) {
-		this.firstname = firstname;
+		this.firstName = firstName;
 	}
 	public String getLastName() {
-		return lastname;
+		return lastName;
 	}
 	public void setLastName(String lastname) {
-		this.lastname = lastname;
+		this.lastName = lastName;
 	}
 	public String getAddress() {
 		return address;
@@ -101,7 +101,7 @@ public class AddressGetterSetter {
 	
 	@Override
 	public String toString() {
-		return "AddressGetterSetter [firstname=" + firstname + ", lastname=" + lastname + ", address=" + address + ", state=" + state
+		return "AddressGetterSetter [firstname=" + firstName + ", lastname=" + lastName + ", address=" + address + ", state=" + state
 				+ ", city=" + city + ", zip=" + zip + ", phone=" + phone + "]";
 	}
 	

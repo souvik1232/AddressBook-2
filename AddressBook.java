@@ -29,37 +29,37 @@ public class AddressBook {
 			switch(input)
 			{
 			case 1:
-				object.Add();
+				object.add();
 				break;
 			case 2:
-				object.Edit();
+				object.edit();
 				break;
 			case 3:
-				object.Delete();
+				object.delete();
 				break;
 			case 4:
-				object.SortName();
+				object.sortName();
 				break;
 			case 5:
-				object.SortCity();
+				object.sortCity();
 				break;
 			case 6:
-				object.SortState();
+				object.sortState();
 				break;
 			case 7:
-				object.SortZip();
+				object.sortZip();
 				break;
 			case 8:
-				object.Display();
+				object.display();
 				break;
 			case 9:
-				object.DisplayCity();
+				object.displayCity();
 				break;
 			case 10:
-				object.DisplayState();
+				object.displayState();
 				break;
 			case 11:
-				object.Search();
+				object.search();
 				break;
 			default:System.out.println("Invalid option");
 			}
