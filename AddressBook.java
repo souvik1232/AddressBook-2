@@ -10,9 +10,10 @@ public class AddressBook {
 		
 		int  input;
 		int ans;
-		AddressService object = new AddressService();
+		AddressService addressService = new AddressService();
 		
 		Scanner scanner = new Scanner(System.in);
+		
 		do {
 			System.out.println("1.Add a contact");
 			System.out.println("2.Edit a contact");
@@ -29,43 +30,43 @@ public class AddressBook {
 			switch(input)
 			{
 			case 1:
-				object.add();
+				addressService.add();
 				break;
 			case 2:
-				object.edit();
+				addressService.edit();
 				break;
 			case 3:
-				object.delete();
+				addressService.delete();
 				break;
 			case 4:
-				object.sortName();
+				addressService.sortName();
 				break;
 			case 5:
-				object.sortCity();
+				addressService.sortCity();
 				break;
 			case 6:
-				object.sortState();
+				addressService.sortState();
 				break;
 			case 7:
-				object.sortZip();
+				addressService.sortZip();
 				break;
 			case 8:
-				object.display();
+				addressService.display();
 				break;
 			case 9:
-				object.displayCity();
+				addressService.displayCity();
 				break;
 			case 10:
-				object.displayState();
+				addressService.displayState();
 				break;
 			case 11:
-				object.search();
+				addressService.search();
 				break;
 			default:System.out.println("Invalid option");
 			}
 			System.out.println("Do you want to continue?(0/1)");
 			ans=scanner.nextInt();
 		}while(ans==1); 
+		scanner.close();
 	}
-
 }

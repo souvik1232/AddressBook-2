@@ -2,55 +2,50 @@ package com.java.addressbook2;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 import java.util.Scanner;
-
-import java.util.Set;
 
 
 
 public class AddressService implements IAddress {
 	
-	ArrayList<AddressGetterSetter> book =new ArrayList<>();
+	ArrayList<Address> book =new ArrayList<>();
 	Scanner scanner = new Scanner(System.in);
 	
 	
 	@Override
 	public void add() {
 
-		AddressGetterSetter Info = new AddressGetterSetter();
+		Address addressService = new Address();
 		System.out.println("Enter First name:");
-		Info.setFirstName(scanner.next());
+		addressService.setFirstName(scanner.next());
 		System.out.println("Enter last name:");
-		Info.setLastName(scanner.next());
+		addressService.setLastName(scanner.next());
 		System.out.println("Enter your address:");
-		Info.setAddress(scanner.next());
+		addressService.setAddress(scanner.next());
 		System.out.println("Enter your city:");
-		Info.setCity(scanner.next());
+		addressService.setCity(scanner.next());
 		System.out.println("Enter your state:");
-		Info.setState(scanner.next());
+		addressService.setState(scanner.next());
 		System.out.println("Enter your ZIP code:");
-		Info.setZip(scanner.nextInt());
+		addressService.setZip(scanner.nextInt());
 		System.out.println("Enter your phone number");
-		Info.setPhone(scanner.next());
+		addressService.setPhone(scanner.next());
 		
 		
 		for(int i =0;i<book.size();i++) {
-			if(book.get(i).getFirstName().equals(Info.getFirstName())) {
-				if(book.get(i).getLastName().equals(Info.getLastName())) {
+			if(book.get(i).getFirstName().equals(addressService.getFirstName())) {
+				if(book.get(i).getLastName().equals(addressService.getLastName())) {
 					System.out.println("Duplicate");
 					break;
 				}
 			}
 			else {
-				book.add(Info);
+				book.add(addressService);
 				break;
 			}	
 		}
 		if(book.size()==0)
-			book.add(Info);	
+			book.add(addressService);	
 	}
 
 
@@ -70,24 +65,24 @@ public class AddressService implements IAddress {
 			{
 				if(book.get(i).getPhone().equals(temp))
 				{
-					AddressGetterSetter Info=new AddressGetterSetter();
+					Address address=new Address();
 					System.out.println(temp);
 					System.out.println("Enter First name:");
-					Info.setFirstName(scanner.next());
+					address.setFirstName(scanner.next());
 					System.out.println("Enter last name:");
-					Info.setLastName(scanner.next());
+					address.setLastName(scanner.next());
 					System.out.println("Enter your address:");
-					Info.setAddress(scanner.next());
+					address.setAddress(scanner.next());
 					System.out.println("Enter your city:");
-					Info.setCity(scanner.next());
+					address.setCity(scanner.next());
 					System.out.println("Enter your state:");
-					Info.setState(scanner.next());
+					address.setState(scanner.next());
 					System.out.println("Enter your ZIP code:");
-					Info.setZip(scanner.nextInt());
+					address.setZip(scanner.nextInt());
 					System.out.println("Enter your phone number");
-					Info.setPhone(scanner.next());
+					address.setPhone(scanner.next());
 					book.remove(i);
-					book.add(i, Info);
+					book.set(i, address);
 					break;
 				}
 				
@@ -120,25 +115,25 @@ public class AddressService implements IAddress {
 	@Override
 	public void sortName() {
 
-		Collections.sort(book, AddressGetterSetter.NameComparator);
+		Collections.sort(book, ComparatorMethod.nameComparator);
 	}
 
 
 	@Override
 	public void sortCity() {
-		Collections.sort(book, AddressGetterSetter.CityComparator);
+		Collections.sort(book, ComparatorMethod.cityComparator);
 	}
 
 
 	@Override
 	public void sortState() {
-		Collections.sort(book, AddressGetterSetter.StateComparator);
+		Collections.sort(book, ComparatorMethod.stateComparator);
 	}
 
 
 	@Override
 	public void sortZip() {
-		Collections.sort(book, AddressGetterSetter.ZipComparator);
+		Collections.sort(book, ComparatorMethod.zipComparator);
 	}
 
 
